@@ -1,0 +1,24 @@
+# Test data for Robotheca's GitHub import. Not a real robot.
+format_version: "0.1"
+name: Robotheca Import Test Arm
+summary: Test data for Robotheca's GitHub import, a two-link arm made of two boxes. Not a real robot.
+category: arm
+difficulty: beginner
+license:
+  hardware: MIT
+  software: MIT
+source:
+  repository: https://github.com/Klajdi00/robotheca-import-test
+tools: ["3D printer"]
+files:
+  urdf: urdf/test_arm.urdf
+  parts_3d: stl/
+  bom: bom.csv
+build_steps:
+  - { title: Print the two boxes }
+  - { title: Put the arm on the base }
+part_links:
+  base_link: 1
+  arm.stl: 2
+maintainers:
+  - { name: Klajdi00, github: Klajdi00 }

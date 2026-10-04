@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- Test data for Robotheca's GitHub import. Not a real robot. -->
+<robot name="robotheca_import_test">
+  <material name="grey"><color rgba="0.6 0.65 0.7 1"/></material>
+  <material name="blue"><color rgba="0.1 0.44 0.88 1"/></material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <!-- Relative path, resolved from this file. -->
+        <mesh filename="../stl/base.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>
+
+  <link name="arm_link">
+    <visual>
+      <geometry>
+        <!-- package:// path, resolved inside the repository. -->
+        <mesh filename="package://robotheca_import_test/stl/arm.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="shoulder" type="revolute">
+    <parent link="base_link"/>
+    <child link="arm_link"/>
+    <origin xyz="0 0 0.03" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="1" velocity="1"/>
+  </joint>
+</robot>
